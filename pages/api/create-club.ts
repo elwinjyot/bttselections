@@ -1,7 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import prisma from "../../lib/prisma";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  // if (req.method === "POST") {
+  if (req.method === "POST") {
     const { clubName, img } = JSON.parse(req.body);
 
     const response = await prisma.club.create({
@@ -24,7 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         res.status(200).send(clubs);
       }
     }
-  // } else {
-    // res.status(400).send({ message: "Only post request accepted" });
-  // }
+  } else {
+    res.status(400).send({ message: "Only post request accepted" });
+  }
 } 
