@@ -7,7 +7,7 @@ export default function Home() {
     <section id="home" className="bg-primary container-full">
       <Image src={logo} alt="" />
       <div className="landing-text">
-        <h1>Don Bosco Institute of Technology</h1>
+        <h1>Bosco Technical Training Society</h1>
         <p>Online Elections Portal</p>
       </div>
       <Link href={"/portal"}>
