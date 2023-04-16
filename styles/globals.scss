@@ -88,6 +88,16 @@ a {
     }
 }
 
+.delete {
+    width: fit-content;
+    justify-self: end;
+    margin-right: 1rem;
+    background-color: #e84343;
+
+    &:hover {
+        background-color: #cc3434;
+    }
+}
 
 .center-portal {
     justify-content: center !important;

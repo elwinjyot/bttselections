@@ -1,6 +1,7 @@
 import { FunctionComponent, useEffect, useState } from "react";
 
 const AddMember: FunctionComponent<Props> = ({ closeWindow, memUpdate }) => {
+  const [adding, setAdding] = useState<boolean>(false);
   const [candidate, setCandidate] = useState<{
     name: string;
     course: string;
@@ -22,6 +23,7 @@ const AddMember: FunctionComponent<Props> = ({ closeWindow, memUpdate }) => {
   }, []);
 
   const addCandidate: Function = async () => {
+    setAdding(true);
     const formData = new FormData();
     formData.append("file", candidate.img ? candidate.img : "");
     formData.append("upload_preset", "dbit-uploads");
@@ -40,7 +42,7 @@ const AddMember: FunctionComponent<Props> = ({ closeWindow, memUpdate }) => {
 
       if (res) {
         res.json().then((data) => {
-          console.log(data);
+          setAdding(false);
           memUpdate(data);
           closeWindow(false);
         });
@@ -129,8 +131,12 @@ const AddMember: FunctionComponent<Props> = ({ closeWindow, memUpdate }) => {
             <option value="President">President</option>
             <option value="Vice President">Vice President</option>
             <option value="Secretary">Secretary</option>
-            <option value="class representative male">class representative male</option>
-            <option value="class representative female">class representative female</option>
+            <option value="class representative male">
+              class representative male
+            </option>
+            <option value="class representative female">
+              class representative female
+            </option>
           </select>
         </div>
         <div className="input-grp input-file">
@@ -178,7 +184,7 @@ const AddMember: FunctionComponent<Props> = ({ closeWindow, memUpdate }) => {
             addCandidate();
           }}
         >
-          Add
+          {adding ? "Uploading..." : "Add"}
         </button>
       </form>
     </section>
