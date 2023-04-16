@@ -15,6 +15,10 @@ const Dashboard: FunctionComponent<Props> = ({ members, clubList }) => {
 
   const router = useRouter();
 
+  const removeMember = () => {
+    console.log("hehe");
+  }
+
   return (
     <>
       {showAddMemberWindow ? (
