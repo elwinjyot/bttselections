@@ -15,9 +15,31 @@ const Dashboard: FunctionComponent<Props> = ({ members, clubList }) => {
 
   const router = useRouter();
 
-  const removeMember = () => {
-    console.log("hehe");
-  }
+  const removeMember = async (userId: any) => {
+    const response = await fetch("/api/delete-member", {
+      method: "POST",
+      body: JSON.stringify({
+        userId: userId,
+      }),
+    });
+
+    if (response) {
+      window.location.reload();
+    }
+  };
+
+  const removeClub = async (clubId: any) => {
+    const response = await fetch("/api/delete-club", {
+      method: "POST",
+      body: JSON.stringify({
+        clubId: clubId,
+      }),
+    });
+
+    if (response) {
+      window.location.reload();
+    }
+  };
 
   return (
     <>
@@ -83,7 +105,12 @@ const Dashboard: FunctionComponent<Props> = ({ members, clubList }) => {
                     <div className="cell">{member.Club.clubName}</div>
                     <div className="cell">{member.position}</div>
                     <div className="cell centered">{member.votes}</div>
-                    <button className="delete-button delete btn-primary">
+                    <button
+                      className="delete-button delete btn-primary"
+                      onClick={() => {
+                        removeMember(member.memberId);
+                      }}
+                    >
                       <span className="material-symbols-rounded">delete</span>
                     </button>
                   </div>
@@ -123,7 +150,9 @@ const Dashboard: FunctionComponent<Props> = ({ members, clubList }) => {
                     <div></div>
                     <div></div>
                     <div></div>
-                    <button className="delete-button delete btn-primary">
+                    <button className="delete-button delete btn-primary" onClick={() => {
+                      removeClub(club.id);
+                    }}>
                       <span className="material-symbols-rounded">delete</span>
                     </button>
                   </div>
@@ -144,6 +173,7 @@ interface Props {
 export const getServerSideProps = async () => {
   const members = await prisma.member.findMany({
     select: {
+      memberId: true,
       name: true,
       img: true,
       position: true,
@@ -160,6 +190,7 @@ export const getServerSideProps = async () => {
   });
   const clubList = await prisma.club.findMany({
     select: {
+      id: true,
       clubName: true,
       imgUri: true,
       _count: {
