@@ -21,7 +21,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
 
       if (clubs) {
-        console.log(clubs);
         res.status(200).send(clubs);
       }
     }

@@ -15,7 +15,6 @@ const Portal: FunctionComponent<Props> = ({ allClubs }) => {
         {clubs ? (
           clubs.length > 0 ? (
             <div className="clubs">
-              {" "}
               {clubs.map((club) => (
                 <Link href={`vote/${club.id}`} key={club.id}>
                   <div className="club">
@@ -52,18 +51,22 @@ interface Props {
 export const getStaticProps = async () => {
   const clubs = await prisma.club.findMany({
     orderBy: {
-      clubName: "asc"
-    }
+      clubName: "asc",
+    },
   });
   if (clubs) {
+    console.log(clubs);
+
     return {
       props: { allClubs: clubs },
     };
-  } else {
-    props: {
-      allClubs: null;
-    }
   }
+
+  return {
+    props: {
+      allClubs: null,
+    },
+  };
 };
 
 export default Portal;
