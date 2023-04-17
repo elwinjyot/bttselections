@@ -15,7 +15,7 @@ const pageMap: { [key: number]: string[] } = {
     9: ["clgjnik2z000olf08r4sdurfc", "clgjnj9og000qlf085mirtgcg", "clgjnke9c000slf08hkvbw0pa"],
     10: ["clgjnlfwa000ulf08xcyiznsw", "clgjnm0cz000wlf08no8iwmjh", "clgjnmjuj000ylf08yw91sqju"],
     11: ["clgjnnh940010lf08nbii2im8", "clgjno5a80012lf08aqdbw5zh", "clgjnotpb0014lf083wn12bvg"],
-    12: ["clgjmhez20002jo08ksby86cn", "clgjl5qjv0002la087xfzl2v3", "clgjlbrhf0008la089hruql64"]
+    12: ["clgkhrkoh0000mc08q7thm8w6", "clgkhw7a90002mc08yygv8s6n", "clgki5khq000gl608eybffwxr", "clgki5z3n000il608hbccwhvi"]
 }
 
 export default pageMap;
