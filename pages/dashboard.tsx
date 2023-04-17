@@ -94,19 +94,27 @@ const Dashboard: FunctionComponent<Props> = ({ members, clubList }) => {
             </div>
             {allMembers
               ? allMembers.map((member, index) => (
-                <div className="candidate">
-                  <div className="cell centered">{index + 1}</div>
-                  <div className="cell">
-                    <div className="tiny-preview">
-                      <img src={member.img} alt="" />
+                  <div className="candidate">
+                    <div className="cell centered">{index + 1}</div>
+                    <div className="cell">
+                      <div className="tiny-preview">
+                        <img src={member.img} alt="" />
+                      </div>
+                      {member.name}
                     </div>
-                    {member.name}
+                    <div className="cell">{member.Club.clubName}</div>
+                    <div className="cell">{member.position}</div>
+                    <div className="cell centered">{member.votes}</div>
+                    <button
+                      className="delete-button delete btn-primary"
+                      onClick={() => {
+                        removeMember(member.memberId);
+                      }}
+                    >
+                      <span className="material-symbols-rounded">delete</span>
+                    </button>
                   </div>
-                  <div className="cell">{member.Club.clubName}</div>
-                  <div className="cell">{member.position}</div>
-                  <div className="cell centered">{member.votes}</div>
-                </div>
-              ))
+                ))
               : null}
           </div>
           <div className="header" style={{ marginTop: "2em" }}>
@@ -131,19 +139,24 @@ const Dashboard: FunctionComponent<Props> = ({ members, clubList }) => {
             </div>
             {clubs
               ? clubs.map((club, index) => (
-                <div className="candidate" key={index}>
-                  <div className="cell centered">{index + 1}</div>
-                  <div className="cell">
-                    <div className="tiny-preview">
-                      <img src={club.imgUri} alt="" />
+                  <div className="candidate" key={index}>
+                    <div className="cell centered">{index + 1}</div>
+                    <div className="cell">
+                      <div className="tiny-preview">
+                        <img src={club.imgUri} alt="" />
+                      </div>
+                      {club.clubName}
                     </div>
-                    {club.clubName}
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <button className="delete-button delete btn-primary" onClick={() => {
+                      removeClub(club.id);
+                    }}>
+                      <span className="material-symbols-rounded">delete</span>
+                    </button>
                   </div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div>
-              ))
+                ))
               : null}
           </div>
         </div>
