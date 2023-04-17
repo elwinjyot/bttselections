@@ -11,7 +11,7 @@ const Document = () => {
           rel="stylesheet"
         />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
-        <title>DBIT | Voting </title>
+        <title>BTTS | Voting </title>
       </Head>
       <body>
         <NextScript />
