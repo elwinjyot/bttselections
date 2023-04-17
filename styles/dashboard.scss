@@ -15,6 +15,7 @@
       .candidate {
         display: grid;
         grid-template-columns: auto 35% 1fr 1fr 1fr 1fr;
+        gap: 0.5rem;
         padding: 0.8em 0em;
 
         &:nth-child(odd) {
