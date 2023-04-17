@@ -102,7 +102,7 @@ const Dashboard: FunctionComponent<Props> = ({ members, clubList }) => {
                       </div>
                       {member.name}
                     </div>
-                    <div className="cell">{member.Club.clubName}</div>
+                    {/* <div className="cell">{member.Club.clubName}</div> */}
                     <div className="cell">{member.position}</div>
                     <div className="cell centered">{member.votes}</div>
                     <button
