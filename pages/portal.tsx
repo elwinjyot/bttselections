@@ -48,7 +48,7 @@ interface Props {
   allClubs: IClub[];
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const clubs = await prisma.club.findMany({
     orderBy: {
       clubName: "asc",
