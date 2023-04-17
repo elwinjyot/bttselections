@@ -12,7 +12,7 @@ const Portal: FunctionComponent<Props> = ({ allClubs }) => {
   return (
     <div id="portal">
       <section className="portal-wrapper">
-        <h1 className="title">All Clubs</h1>
+        <h1 className="title">{clubs[0].clubName}</h1>
         {clubs ? (
           clubs.length > 0 ? (
             <div className="clubs">
